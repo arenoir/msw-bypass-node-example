@@ -16,7 +16,11 @@ export const handlers = [
     //return passthrough();
 
     // Doesn't work.
-    const bypassedRequest = await fetch(bypass(request));
+    try {
+      const bypassedRequest = await fetch(bypass(request));
+    } catch (e) {
+      console.log(e);
+    }
     
     // Doesn't work.
     //const bypassedRequest = await fetch(...bypass(request));
