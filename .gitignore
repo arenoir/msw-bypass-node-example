@@ -1,0 +1,15 @@
+
+# Ignore Mac .DS_Store files
+.DS_Store
+
+# Ignored vscode files
+.vscode/
+
+# Node
+**/node_modules
+
+.eslintcache
+
+#Testing
+.env.local
+.env.*.local
