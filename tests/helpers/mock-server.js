@@ -28,7 +28,7 @@ export const handlers = [
     // Respond with a mocked response that combines
     // the actual and mock data.
     return HttpResponse.json({
-      url: gist.url + "modified"
+      url: gist.url + "--bypass-modified"
     })
   }),
 

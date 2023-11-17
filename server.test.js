@@ -28,6 +28,6 @@ test('expect gist bd23a450dfdc2ed1e10092bce0887cf9 to return bypassed modified r
   const id = "bd23a450dfdc2ed1e10092bce0887cf9";
   const response = await request(application).get(`/application/${id}`).expect(200);
 
-  expect(response.text).toBe('Gist URL: mocked-url');
+  expect(response.text).toBe('Gist URL: https://api.github.com/gists/0b13c4ed2a8ba0a738edce592c283b44--bypass-modified');
 });
 
