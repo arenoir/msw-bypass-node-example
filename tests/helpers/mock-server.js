@@ -13,10 +13,12 @@ export const handlers = [
     // Fetch the original response from the GitHub API.
 
     // Doesn't work.
-    const bypassedRequest = fetch(bypass(request));
+    const bypassedRequest = await fetch(bypass(request));
     
     // Doesn't work.
-    //const bypassedRequest = fetch(...bypass(request));
+    //const bypassedRequest = await fetch(...bypass(request));
+
+    console.log('bypassedRequest', bypassedRequest);
     
     const gist = await bypassedRequest.json();
  
