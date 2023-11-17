@@ -1,6 +1,7 @@
 import { setupServer } from 'msw/node'
 import { http, bypass, HttpResponse, passthrough } from 'msw'
- 
+import fetch from 'node-fetch';
+
 export const handlers = [
 
   //All requests are intercepted including request to the express application being tested via supertest.
@@ -10,7 +11,14 @@ export const handlers = [
 
   http.get('https://api.github.com/gists/bd23a450dfdc2ed1e10092bce0887cf9', async ({ request }) => {
     // Fetch the original response from the GitHub API.
-    const gist = await bypass(request).then((response) => response.json())
+
+    // Doesn't work.
+    const bypassedRequest = fetch(bypass(request));
+    
+    // Doesn't work.
+    //const bypassedRequest = fetch(...bypass(request));
+    
+    const gist = await bypassedRequest.json();
  
     // Respond with a mocked response that combines
     // the actual and mock data.
