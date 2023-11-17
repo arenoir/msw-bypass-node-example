@@ -11,6 +11,9 @@ export const handlers = [
 
   http.get('https://api.github.com/gists/bd23a450dfdc2ed1e10092bce0887cf9', async ({ request }) => {
     // Fetch the original response from the GitHub API.
+    
+    // This URL is valid as passthrough does work.
+    //return passthrough();
 
     // Doesn't work.
     const bypassedRequest = await fetch(bypass(request));
