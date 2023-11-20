@@ -20,6 +20,10 @@ export const handlers = [
       const bypassedRequest = await fetch(bypass(request));
     } catch (e) {
       console.log(e);
+      return HttpResponse.json({
+        url: 'error',
+        error: 'Bypass returned error.'
+      })
     }
     
     // Doesn't work.
