@@ -1,6 +1,5 @@
 import { setupServer } from 'msw/node'
 import { http, bypass, HttpResponse, passthrough } from 'msw'
-import fetch from 'node-fetch';
 
 export const handlers = [
 
@@ -15,19 +14,7 @@ export const handlers = [
     // This URL is valid as passthrough does work.
     //return passthrough();
 
-    // Doesn't work.
-    try {
-      const bypassedRequest = await fetch(bypass(request));
-    } catch (e) {
-      console.log(e);
-      return HttpResponse.json({
-        url: 'error',
-        error: 'Bypass returned error.'
-      })
-    }
-    
-    // Doesn't work.
-    //const bypassedRequest = await fetch(...bypass(request));
+    const bypassedRequest = await fetch(bypass(request));
 
     console.log('bypassedRequest', bypassedRequest);
     
